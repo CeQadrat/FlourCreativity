@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>iForum</title>
+    <!-- Angular Material style sheet -->
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/app.scss">
+    <link rel="stylesheet" href="lib/md-data-table.min.css">
+</head>
+<body layout="row" ng-app="IndexApp" ng-controller="AppCtrl">
+
+<md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+    <ng-include src="'leftnav.html'"></ng-include>
+</md-sidenav>
+
+<md-sidenav ng-if="user" layout="column" class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
+    <ng-include src="'rightnav.html'"></ng-include>
+</md-sidenav>
+
+<div layout="column" layout-fill>
+    <ng-include src="'toolbar.html'"></ng-include>
+    <md-content flex md-scroll-y>
+        <!-- exact table from live demo -->
+        <md-table-container>
+            <table md-table md-row-select ng-model="selected" md-progress="promise">
+                <thead md-head md-order="query.order" md-on-reorder="onReorder">
+                <tr md-row>
+                    <th md-column md-order-by="nameToLower"><span>Name</span></th>
+                    <th md-column md-numeric md-order-by="calories.value"><span>Id</span></th>
+                    <th md-column md-numeric>Date</th>
+                    <th md-column md-numeric>Title</th>
+                    <th md-column md-numeric>Text</th>
+                    <th md-column md-numeric>Avatar</th>
+                </tr>
+                </thead>
+                <tbody md-body>
+                <tr md-row md-select="post" md-select-id="{{post.id}}" md-auto-select ng-repeat="post in posts">
+                    <td md-cell>{{post.writerName}}</td>
+                    <td md-cell>{{post.id}}</td>
+                    <td md-cell>{{post.date}}</td>
+                    <td md-cell>{{post.title}}</td>
+                    <td md-cell>{{post.descriptionText}}</td>
+                    <td md-cell><img ng-src="{{post.}}" </td>
+                    <td md-cell>{{dessert.calcium.value}}{{dessert.calcium.unit}}</td>
+                    <td md-cell>{{dessert.iron.value}}{{dessert.iron.unit}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </md-table-container>
+
+        <md-table-pagination md-limit="query.limit" md-page="query.page" md-total="{{desserts.count}}" md-on-paginate="onPaginate" md-page-select></md-table-pagination>
+    </md-content>
+</div>
+
+<!-- Angular Material requires Angular.js Libraries -->
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+
+<!-- Angular Material Library -->
+<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.6.0/angular-material-icons.min.js"></script>
+<script src="lib/md-data-table.min.js"></script>
+
+<!-- Angular YouTube Embed Library-->
+<script src="lib/angular-youtube-embed.js"></script>
+<script src="https://www.youtube.com/iframe_api"></script>
+
+<script src="js/index.js"></script>
+</body>
+</html>

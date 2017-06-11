@@ -1,0 +1,44 @@
+<md-dialog aria-label="Registration" flex="80" flex-gt-sm="30">
+    <form ng-submit="ctrl.done()">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Registration</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="ctrl.cancel()">
+                    <md-icon aria-label="Close dialog">
+                        <ng-md-icon icon="close"></ng-md-icon>
+                    </md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <md-content md-scroll-y>
+                    <div>
+                        <md-input-container class="md-block">
+                            <label>Email</label>
+                            <input ng-model="ctrl.user.email" type="email" md-maxlength="20" ng-required="true">
+                        </md-input-container>
+                        <md-input-container class="md-block">
+                            <label>Name</label>
+                            <input ng-model="ctrl.user.name" md-maxlength="20" ng-required="true">
+                        </md-input-container>
+                        <md-input-container class="md-block">
+                            <label>Password</label>
+                            <input ng-model="ctrl.user.password" type="password" md-maxlength="20" ng-required="true">
+                        </md-input-container>
+                    </div>
+                </md-content>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button ng-click="ctrl.cancel()">
+                Cancel
+            </md-button>
+            <md-button type="submit" class="md-primary md-raised">
+                Registration
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

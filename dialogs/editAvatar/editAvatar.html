@@ -1,0 +1,54 @@
+<md-dialog aria-label="Edit avatar" flex="90" flex-gt-sm="40">
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Edit avatar</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="ctrl.cancel()">
+                    <md-icon aria-label="Close dialog">
+                        <ng-md-icon icon="close"></ng-md-icon>
+                    </md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <md-content class="autoScroll">
+                    <div ng-if="!ctrl.genMode" ng-init="ctrl.prewInit()">
+                        <input type="file" name="file" id="avatar" class="ng-hide">
+                        <div layout="row">
+                            <md-button flex="100" class="md-raised md-primary " ng-click="ctrl.add()">Choose file</md-button>
+                        </div>
+                    </div>
+                    <div ng-if="ctrl.genMode">
+                        Choose color to generate avatar
+                        <div layout="row" layout-align="center center" layout-fill>
+                            <md-select ng-model="ctrl.color" placeholder="Color" class="md-no-underline" flex>
+                                <md-option ng-repeat="color in ctrl.colors" value="{{color.hex}}"
+                                           md-colors="{background: '{{color.name}}'}" md-colors-watch="false"
+                                           ng-click="ctrl.genAvatar(color.hex)">
+                                    {{color.name}}
+                                </md-option>
+                            </md-select>
+                        </div>
+                    </div>
+                    <div ng-if="ctrl.prewUrl" layout="row" layout-align="center center">
+                        <img ng-src="{{ctrl.prewUrl}}">
+                    </div>
+                    <md-switch ng-model="ctrl.genMode" aria-label="Switch gen mode" ng-change="ctrl.prewUrl=''">
+                        Generate avatar
+                    </md-switch>
+                </md-content>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button ng-click="ctrl.cancel()">
+                Cancel
+            </md-button>
+            <md-button ng-click="ctrl.done()" class="md-primary md-raised" ng-disabled="ctrl.prewUrl==''">
+                Save
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

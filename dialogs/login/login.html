@@ -1,0 +1,59 @@
+<md-dialog aria-label="Sign in" flex="90" flex-gt-sm="35">
+    <form ng-submit="ctrl.done()">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Sign in</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="ctrl.cancel()">
+                    <md-icon aria-label="Close dialog">
+                        <ng-md-icon icon="close"></ng-md-icon>
+                    </md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <section layout="row" layout-align="start center">
+                    <h3><b>Login via:</b></h3>
+                    <md-button ng-click="ctrl.signInPopup('facebook')" class="md-icon-button md-whiteframe-4dp" style="background-color: #3b5998;border-radius: 0%" aria-label="Facebook"><md-icon style="color: white"><ng-md-icon icon="facebook"></ng-md-icon></md-icon></md-button>
+                    <md-button ng-click="ctrl.signInPopup('twitter')" class="md-icon-button md-whiteframe-4dp" style="background-color: #55acee;border-radius: 0%" aria-label="Twitter"><md-icon style="color: white"><ng-md-icon icon="twitter"></ng-md-icon></md-icon></md-button>
+                    <md-button ng-click="ctrl.signInPopup('google')" class="md-icon-button md-whiteframe-4dp" style="background-color: #dd4b39;border-radius: 0%" aria-label="Google plus"><md-icon style="color: white"><ng-md-icon icon="google-plus"></ng-md-icon></md-icon></md-button>
+                    <md-button ng-click="ctrl.signInPopup('github')" class="md-icon-button md-whiteframe-4dp" style="background-color: #444444;border-radius: 0%" aria-label="GitHub"><md-icon style="color: white"><ng-md-icon icon="github-circle"></ng-md-icon></md-icon></md-button>
+                </section>
+                <br>
+                <md-divider></md-divider>
+                <p><h3><b>Or using your account:</b></h3></p>
+                <md-content>
+                    <div>
+                        <md-input-container class="md-block">
+                            <label>Email</label>
+                            <md-icon><ng-md-icon icon="person"></ng-md-icon></md-icon>
+                            <input ng-model="ctrl.user.email" md-maxlength="20" ng-required="true">
+                        </md-input-container>
+                        <md-input-container class="md-block">
+                            <label>Password</label>
+                            <md-icon><ng-md-icon icon="vpn_key"></ng-md-icon></md-icon>
+                            <input ng-model="ctrl.user.password" type="password" md-maxlength="20" ng-required="true">
+                        </md-input-container>
+                    </div>
+                    <div layout="row">
+                        <a ng-click="ctrl.forgot()">Forgot password?</a>
+                        <span flex></span>
+                        <md-checkbox ng-model="ctrl.user.rm" aria-label="Remember me">
+                            Remember me
+                        </md-checkbox>
+                    </div>
+                </md-content>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button ng-click="ctrl.cancel()">
+                Cancel
+            </md-button>
+            <md-button type="submit" class="md-primary md-raised">
+                Login
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

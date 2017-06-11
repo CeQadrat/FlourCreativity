@@ -1,0 +1,11 @@
+<app-sidenav ng-if="ctrl.user" user="ctrl.user"></app-sidenav>
+<app-toolbar user="ctrl.user"></app-toolbar>
+
+<div flex layout="row" role="main" md-swipe-right="ctrl.openSidenav()">
+    <span id="test"></span>
+    <app-menu user="ctrl.user"></app-menu>
+    <md-content flex md-scroll-y class="md-padding">
+        <!--<ng-outlet layout="column"></ng-outlet>-->
+        <ui-view layout="column"></ui-view>
+    </md-content>
+</div>

@@ -1,0 +1,29 @@
+<div flex-xs flex-sm flex-gt-sm="85" flex-offset-gt-sm="5">
+    <div layout="row">
+        <div layout="row" layout-fill layout-align="center center" ng-if="!ctrl.posts">
+            <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+        </div>
+        <div layout="column" layout-fill layout-align="center center" ng-if="ctrl.posts.length == 0">
+            <img src="https://firebasestorage.googleapis.com/v0/b/flour-creativity.appspot.com/o/1359477091749.jpg?alt=media&token=a723635a-4811-4717-8b99-06a5716c9de1"/>
+            <h1>No one post here</h1>
+        </div>
+        <div flex="100" ng-if="ctrl.posts && ctrl.posts.length != 0">
+            <form layout="row" style="margin: 0 8px 0 8px">
+                <md-input-container md-no-float flex>
+                    <label>Search</label>
+                    <md-icon>
+                        <ng-md-icon icon="search"></ng-md-icon>
+                    </md-icon>
+                    <input type="text" ng-model="ctrl.search">
+                </md-input-container>
+                <md-input-container>
+                    <md-select ng-model="order" ng-init="order = '-date'">
+                        <md-option ng-value="'-date'">Latest</md-option>
+                        <md-option ng-value="['-likes', '-date']">Populars</md-option>
+                    </md-select>
+                </md-input-container>
+            </form>
+            <min-post ng-repeat="post in ctrl.posts | orderBy:order | filter:ctrl.search" post="post"></min-post>
+        </div>
+    </div>
+</div>

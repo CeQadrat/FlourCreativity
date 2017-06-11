@@ -1,0 +1,9 @@
+<edit-post post="ctrl.post" block-style="ctrl.blockStyle"></edit-post>
+<div layout="row">
+    <md-button ng-disabled="(!ctrl.blockStyle && ctrl.post.content.length==0) || ctrl.post.title.length==0 || (ctrl.blockStyle && ctrl.post.blocks.length==0)" class="md-raised md-primary" ng-click="ctrl.save()" aria-label="Save">
+        Save
+    </md-button>
+    <md-switch ng-model="ctrl.blockStyle" aria-label="Switch sandbox type">
+        Old block style: {{ ctrl.blockStyle }}
+    </md-switch>
+</div>

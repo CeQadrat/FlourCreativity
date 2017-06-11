@@ -1,0 +1,87 @@
+<md-card class="md-whiteframe-4dp post-card">
+    <md-card-header layout="row">
+        <md-card-avatar>
+            <img class="md-user-avatar" ng-src="{{ctrl.post.writer.avatar}}">
+        </md-card-avatar>
+        <md-card-header-text>
+            <span class="md-title">{{ctrl.post.writer.name}}</span>
+            <span class="md-subhead">{{ctrl.post.date | date:"dd-MM-yyyy 'at' h:mm"}}</span>
+        </md-card-header-text>
+    </md-card-header>
+    <md-divider></md-divider>
+    <md-card-title>
+        <md-card-title-text>
+            <div class="md-headline" layout="row" layout-align="start center" ng-if="!ctrl.editTitle">
+                <span>{{ctrl.post.title}}</span>
+                <md-button ng-click="ctrl.editTitle=true" class="md-icon-button" aria-label="Edit title">
+                    <md-icon>
+                        <ng-md-icon icon="edit"></ng-md-icon>
+                    </md-icon>
+                </md-button>
+            </div>
+            <div class="md-headline" layout="row" layout-align="start center" ng-if="ctrl.editTitle">
+                <md-input-container>
+                    <label>Title</label>
+                    <input ng-model="ctrl.post.title">
+                </md-input-container>
+                <md-button ng-click="ctrl.editTitle=false" class="md-icon-button" aria-label="Edit title">
+                    <md-icon>
+                        <ng-md-icon icon="done"></ng-md-icon>
+                    </md-icon>
+                </md-button>
+            </div>
+            <span class="md-subhead">
+                <md-chips ng-model="ctrl.post.tags">
+                    <md-autocomplete
+                            md-search-text="ctrl.searchText"
+                            md-items="item in ctrl.querySearch(ctrl.searchText)"
+                            placeholder="Enter a tag">
+                        <span md-highlight-text="ctrl.searchText">{{item}}</span>
+                    </md-autocomplete>
+                </md-chips>
+            </span>
+        </md-card-title-text>
+    </md-card-title>
+    <md-card-content layout="column" layout-align="center center" ng-if="ctrl.blockStyle">
+        <div ng-repeat="block in ctrl.post.blocks" layout="row" layout-align="center center" class="card-blocks" ng-click="ctrl.showBlockActions($index)">
+            <div ng-if="block.type=='text'" layout-fill>
+                <div ng-if="!block.markdown" class="card-text">
+                    {{block.text}}
+                </div>
+                <div ng-if="block.markdown" markdown-to-html="block.text" class="card-text"></div>
+            </div>
+            <div ng-if="block.type=='img'" layout="column" layout-align="center center">
+                <div class="image-block">
+                    <img ng-src="{{block.imgUrl}}" class="card-image">
+                </div>
+                <div class="card-text"><i>{{block.description}}</i></div>
+            </div>
+            <div ng-if="block.type=='video'" class="video-block">
+                <div class="card-video">
+                    <youtube-video video-url="block.videoUrl" player-width="'100%'"
+                                   player-height="'100%'"></youtube-video>
+                </div>
+            </div>
+            <div ng-if="block.type=='img-text'">
+                <div class="image-block leftimg">
+                    <img ng-src="{{block.imgUrl}}" class="card-image">
+                </div>
+                <div class="card-text">
+                    {{block.text}}
+                </div>
+            </div>
+        </div>
+        <md-button class="md-raised md-primary" ng-click="ctrl.showCreateBlockDialog($event)">Add block</md-button>
+    </md-card-content>
+    <md-card-content layout="column" ng-if="!ctrl.blockStyle">
+        <text-angular ng-model="ctrl.post.content"></text-angular>
+        <md-checkbox ng-model="ctrl.markdown" aria-label="markdown">
+            Use <i>Markdown</i> styles
+        </md-checkbox>
+    </md-card-content>
+</md-card>
+<md-button class="md-fab md-fab-bottom-right" aria-label="Add" style="position: fixed">
+    <md-icon>
+        <ng-md-icon icon="add"></ng-md-icon>
+    </md-icon>
+</md-button>

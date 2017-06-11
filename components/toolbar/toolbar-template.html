@@ -1,0 +1,51 @@
+<md-toolbar>
+    <div class="md-toolbar-tools">
+        <md-button ng-click="ctrl.toggleSidenav('left')" hide-gt-sm aria-label="Menu" class="md-icon-button" ng-if="ctrl.user">
+            <md-icon>
+                <ng-md-icon icon="menu"></ng-md-icon>
+            </md-icon>
+        </md-button>
+        <a class="click-item" ui-sref="index">
+            Creativity
+        </a>
+        <span flex></span>
+        <div ng-if="ctrl.user" style="height: 100%">
+            <md-menu md-offset="0 65" hide-xs hide-sm>
+                <md-button ng-click="ctrl.openMenu($mdOpenMenu, $event)" aria-label="Menu" style="height: 100%">
+                    <div layout="row" layout-align="start center" layout-align-xs="center center" style="height: 100%">
+                        <div class="avatar-min-container" layout="row" layout-align="start center" hide-xs>
+                            <img class="avatar-min-circle" ng-src="{{ctrl.user.avatar}}">
+                        </div>
+                        <span flex="5" hide-xs></span>
+                        <div layout="column" style="text-transform: none">
+                            <h4>{{ctrl.user.name}}</h4>
+                        </div>
+                    </div>
+                </md-button>
+                <md-menu-content width="3">
+                    <md-menu-item>
+                        <md-button ui-sref="profile({userId: '{{ctrl.user.id}}'})">
+                            My profile
+                        </md-button>
+                    </md-menu-item>
+                    <md-menu-divider></md-menu-divider>
+                    <md-menu-item>
+                        <md-button ng-click="ctrl.showEditProfileDialog($event)">
+                            Edit profile
+                        </md-button>
+                    </md-menu-item>
+                    <md-menu-divider></md-menu-divider>
+                    <md-menu-item>
+                        <md-button ng-click="ctrl.logout()">
+                            Logout
+                        </md-button>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
+        </div>
+        <div ng-if="!ctrl.user">
+            <md-button class="md-primary" ng-click="ctrl.showLoginDialog($event)">Login</md-button>
+            <md-button class="md-primary" ng-click="ctrl.showRegistrationDialog($event)">Registration</md-button>
+        </div>
+    </div>
+</md-toolbar>

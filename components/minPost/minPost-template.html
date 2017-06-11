@@ -1,0 +1,52 @@
+<md-card class="md-whiteframe-4dp preview-card">
+    <md-card-header layout="row">
+        <md-card-avatar ui-sref="profile({userId: '{{ctrl.post.writer.id}}'})" class="click-item">
+            <img class="md-user-avatar" ng-src="{{ctrl.post.writer.avatar}}">
+        </md-card-avatar>
+        <md-card-header-text>
+            <span class="md-title click-item" ui-sref="profile({userId: '{{ctrl.post.writer.id}}'})">{{ctrl.post.writer.name}}</span>
+            <span class="md-subhead">{{ctrl.post.date | date:"dd-MM-yyyy 'at' h:mm"}}</span>
+        </md-card-header-text>
+    </md-card-header>
+    <md-divider></md-divider>
+    <md-card-title>
+        <md-card-title-text>
+            <span class="md-headline" ui-sref="post({postId: '{{ctrl.post.id}}'})">
+                {{ctrl.post.title}}
+            </span>
+            <span class="md-subhead">
+                <md-chips readonly="true" ng-model="ctrl.post.tags">
+                    <md-chip-template>
+                        <span>
+                            <span ui-sref="tags({tag: '{{$chip}}'})">{{$chip}}</span>
+                        </span>
+                    </md-chip-template>
+                </md-chips>
+            </span>
+        </md-card-title-text>
+    </md-card-title>
+    <md-card-content>
+        <div class="card-text">
+            <div ng-class="ctrl.smClass">
+                <span compile="ctrl.post.content"></span>
+            </div>
+        </div>
+        <p class="show-more-button" ng-click="ctrl.showMore($element)" ng-show="ctrl.smClass">
+            <b>Show more...</b>
+        </p>
+    </md-card-content>
+    <md-divider></md-divider>
+    <md-card-actions layout="row" layout-align="start center">
+        <div class="like-footer">
+            <like-buttons name="'post'" item="ctrl.post"></like-buttons>
+        </div>
+        <span flex="5"></span>
+        <div>
+            <md-icon>
+                <ng-md-icon icon="comment"></ng-md-icon>
+            </md-icon>
+            <span>{{ctrl.post.commentLength}}</span>
+        </div>
+        <span flex></span>
+    </md-card-actions>
+</md-card>

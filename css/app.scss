@@ -1,0 +1,246 @@
+@import "../node_modules/angular-material/angular-material.scss";
+
+html {
+    overflow: hidden;
+}
+
+.md-toolbar-tools .md-primary {
+    color: rgba(255, 255, 255, 0.87);
+}
+
+.sidenav-toolbar {
+    margin: 10px;
+}
+
+.sidenav-avatar {
+    border-radius: 100%;
+    width: 64px;
+}
+
+.app-sidenav{
+    min-width: 272px;
+    max-width: 272px;
+    width: 272px;
+}
+
+.click-item {
+    cursor: pointer;
+}
+
+.site-title {
+    font-size: 60px;
+}
+
+.avatar-min-container {
+    height: 50px;
+    width: 50px;
+    padding: 1px;
+}
+
+.avatar-min-circle {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+}
+
+.avatar-min-rect {
+    width: 50px;
+    height: 50px;
+}
+
+.preview-card {
+    margin-bottom: 30px;
+}
+
+.preview-card md-card-header {
+    background-color: #dddddd;
+}
+
+.preview-card .card-text, .post-card .card-text {
+    word-wrap: break-word;
+}
+
+.preview-card .card-text .md-button {
+    margin: inherit;
+    text-transform: none;
+}
+
+.preview-card .card-image {
+    width: auto;
+    max-height: 450px;
+}
+
+.post-card md-card-header {
+    background-color: #dddddd;
+}
+
+.post-card .image-block {
+    width: 90%;
+    padding: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+}
+
+.post-card .card-image {
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+}
+
+.post-card .image-block.leftimg {
+    width: 60%;
+    float: left;
+    margin-right: 8px;
+}
+
+.post-card .description-text {
+    text-align: center;
+}
+
+.post-card .card-blocks {
+    width: 100%;
+}
+
+.post-card .card-blocks > div {
+    margin-bottom: 16px;
+}
+
+.video-block {
+    position: relative;
+    width: 75%;
+}
+
+.video-block:before {
+    content: "";
+    display: block;
+    padding-top: 56.25%;
+}
+
+.card-video {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+
+.comment-input .comment-simplebox {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #dddddd;
+    color: #b8b8b8;
+    cursor: pointer;
+    margin-left: 15px;
+    min-height: 35px;
+    border-radius: 2px;
+    padding: 8px 10px 5px;
+}
+
+.comment-content {
+    margin-left: 15px;
+}
+
+.comment-author {
+    font-weight: 500;
+    color: #128ee9;
+    cursor: pointer;
+}
+
+.comment-time {
+    color: #767676;
+    font-size: 11px;
+    margin-left: 6px;
+}
+
+.comment-text {
+    white-space: pre-wrap;
+}
+
+.comment-header {
+    text-transform: uppercase;
+    font-size: 15px;
+    color: #555555;
+}
+
+.like-footer .md-button {
+    padding: 0px;
+    margin: 0px;
+    line-height: inherit;
+    min-height: inherit;
+    min-width: inherit;
+    text-transform: none;
+    color: #555555;
+    opacity: .75;
+}
+
+.like-footer .md-button:hover {
+    background-color: inherit;
+    opacity: 1;
+}
+.like-footer .md-button.liked{
+    opacity: 1;
+}
+.like-footer .md-button.liked .like{
+    color: rgb(0,150,136);
+}
+.like-footer .like {
+    padding: 3px;
+    vertical-align: top;
+    width: 20px;
+    height: 20px;
+}
+
+.like-footer .like-counter {
+    margin-left: 8px;
+    color: #128ee9;
+    font-size: 9pt;
+}
+
+.comment-input textarea.md-input {
+    border-width: 1px;
+    min-height: 60px;
+    resize: vertical;
+}
+
+.comment-input textarea:focus {
+    border-width: 1px;
+}
+
+.comment-input .comment-input-container {
+    margin-left: 15px;
+}
+
+.comment-input .md-button {
+    text-transform: none;
+    min-width: 68px;
+    min-height: 30px;
+    line-height: 30px;
+}
+
+.active{
+    background-color: rgba(0,0,0,0.15);
+}
+
+.show-more{
+    max-height: 500px;
+    overflow: hidden;
+}
+
+.show-more-button{
+    -webkit-transition: background-color 200ms;
+    transition: background-color 200ms;
+    background-color: white;
+    color: #42648b;
+    opacity: 0.8;
+    top: -5px;
+    position: relative;
+    padding: 10px 0;
+}
+
+.show-more-button:hover{
+    opacity: 1;
+}
+
+div.md-divider{
+    @extend md-divider
+}

@@ -1,0 +1,22 @@
+<md-dialog flex="90" flex-gt-sm="35" aria-label="choose img">
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Choose image</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="ctrl.cancel()">
+                    <md-icon aria-label="Close dialog">
+                        <ng-md-icon icon="close"></ng-md-icon>
+                    </md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <md-content class="autoScroll">
+                    <media-library user="ctrl.user" click-fun="ctrl.done"></media-library>
+                </md-content>
+            </div>
+        </md-dialog-content>
+    </form>
+</md-dialog>

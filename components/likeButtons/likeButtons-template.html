@@ -1,0 +1,11 @@
+<span class="like-counter">{{ctrl.item.likes}}</span>
+<md-button ng-click="ctrl.setRating('like')" aria-label="like" ng-class="{liked: ctrl.like}">
+    <md-icon class="like">
+        <ng-md-icon icon="thumb_up" size="14"></ng-md-icon>
+    </md-icon>
+</md-button>
+<md-button ng-click="ctrl.setRating('dislike')" aria-label="dislike" ng-class="{liked: ctrl.dislike}">
+    <md-icon class="like">
+        <ng-md-icon icon="thumb_down" size="14"></ng-md-icon>
+    </md-icon>
+</md-button>

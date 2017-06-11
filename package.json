@@ -1,0 +1,40 @@
+{
+  "name": "creativity",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "angular": "<1.6",
+    "angular-animate": "<1.6",
+    "angular-aria": "<1.6",
+    "angular-material": "^1.1.1",
+    "angular-material-icons": "^0.7.1",
+    "angular-messages": "<1.6",
+    "angular-sanitize": "<1.6",
+    "angular-ui-router": "^1.0.0-rc.1",
+    "angular-youtube-embed": "^1.3.1",
+    "angularfire": "^2.3.0",
+    "bootstrap": "^3.3.7",
+    "firebase": "^3.6.7",
+    "font-awesome": "^4.7.0",
+    "grunt": "^1.0.1",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-sass": "^2.0.0",
+    "grunt-shell": "^2.1.0",
+    "grunt-sw-precache": "^1.0.3",
+    "ng-showdown": "^1.1.0",
+    "sw-precache": "^4.3.0",
+    "textangular": "^1.5.16"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "CeQadrat",
+  "license": "ISC"
+}

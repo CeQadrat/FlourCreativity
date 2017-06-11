@@ -1,0 +1,27 @@
+<md-sidenav layout="column" layout-fill class="app-sidenav md-sidenav-left md-whiteframe-z2" md-component-id="left" md-swipe-left="ctrl.close()">
+    <md-toolbar class="md-hue-2 md-tall">
+        <div class="sidenav-toolbar">
+            <div>
+                <img ng-src="{{ctrl.user.avatar}}" class="sidenav-avatar" >
+            </div>
+            <div>{{ctrl.user.name}}</div>
+        </div>
+    </md-toolbar>
+    <md-list>
+        <md-list-item ng-repeat="item in ctrl.menu" md-ink-ripple ng-click="item.fun()" ui-sref-active="active">
+            <div>
+                <md-item-content layout="row" layout-align="start center">
+                    <div class="inset">
+                        <md-icon>
+                            <ng-md-icon icon="{{item.icon}}"></ng-md-icon>
+                        </md-icon>
+                    </div>
+                    <div class="inset">
+                        {{item.text}}
+                    </div>
+                </md-item-content>
+            </div>
+            <md-divider></md-divider>
+        </md-list-item>
+    </md-list>
+</md-sidenav>

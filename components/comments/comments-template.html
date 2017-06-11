@@ -1,0 +1,49 @@
+<md-card class="md-whiteframe-4dp">
+    <md-card-content>
+        <div layout="column" layout-margin>
+            <h2 class="comment-header">
+                <b>{{ctrl.comments.length}} comments</b>
+            </h2>
+            <div layout="row" layout-align="center center" class="comment-input" ng-if="!ctrl.user">
+                <p>
+                    <b ng-click="ctrl.showDialog('login',$event)">Login</b> or
+                    <b ng-click="ctrl.showDialog('register',$event)">register</b> to leave comments.</p>
+            </div>
+            <div layout="row" class="comment-input" ng-if="ctrl.user">
+                <div class="avatar-min-container">
+                    <img ng-src="{{ctrl.user.avatar}}" class="avatar-min-rect">
+                </div>
+                <div flex ng-if="!ctrl.writeComment" class="comment-simplebox" ng-click="ctrl.writingComment(true)">
+                    <p>Leave a comment</p>
+                </div>
+                <div flex ng-if="ctrl.writeComment" ng-init="ctrl.inputFocus()" layout="column" class="comment-input-container">
+                    <md-input-container id="commentInputContainer" class="md-block" flex style="margin: 0%">
+                        <textarea id="commentInput" ng-model="ctrl.newComment" md-maxlength="300" class="md-primary" aria-label="comment"></textarea>
+                    </md-input-container>
+                    <div layout="row">
+                        <span flex></span>
+                        <md-button ng-click="ctrl.writingComment(false)" class="md-raised">Cancel</md-button>
+                        <md-button class="md-raised md-primary" ng-disabled="!ctrl.newComment" ng-click="ctrl.sendComment()">Send</md-button>
+                    </div>
+                </div>
+            </div>
+            <md-divider></md-divider>
+            <div ng-repeat="comment in ctrl.comments | orderBy:'-date'">
+                <div layout="row">
+                    <div class="avatar-min-container">
+                        <img ng-src="{{comment.writer.avatar}}" class="avatar-min-rect">
+                    </div>
+                    <div class="comment-content">
+                        <a class="comment-author" ui-sref="profile({userId: '{{comment.writer.id}}'})">{{comment.writer.name}}</a>
+                        <span class="comment-time">{{comment.date | date:"medium"}}</span>
+                        <p ng-bind-html="comment.text" class="comment-text"></p>
+                        <div class="like-footer">
+                            <md-button ng-click="ctrl.answerComment(comment.writer)">Answer</md-button>
+                            <like-buttons name="'comment'" item="comment"></like-buttons>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </md-card-content>
+</md-card>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flour Creativity</title>
+    <!-- Angular Material style sheet -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#009688">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel='stylesheet' href='css/textAngular.css'>
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="manifest" href="manifest.json">
+    <base href="/">
+</head>
+<body ng-app="IndexApp" layout="row">
+<app layout="column" layout-fill></app>
+
+<script src="js/libs.min.js"></script>
+<script src="https://www.youtube.com/iframe_api"></script>
+
+<script>
+    // Initialize Firebase
+    let config = {
+        apiKey: "AIzaSyAFZpmTLCk_hnV-p1sejlS8pmzpGMT8VVk",
+        authDomain: "flour-creativity.firebaseapp.com",
+        databaseURL: "https://flour-creativity.firebaseio.com",
+        storageBucket: "flour-creativity.appspot.com",
+        messagingSenderId: "1063919346470"
+    };
+    firebase.initializeApp(config);
+</script>
+
+
+<script src="js/index.js"></script>
+<script src="js/components.js"></script>
+<script src="js/dialogs.js"></script>
+<script src="js/services.js"></script>
+</body>
+</html>

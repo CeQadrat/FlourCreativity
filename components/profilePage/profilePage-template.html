@@ -1,0 +1,18 @@
+<div ng-if="ctrl.user" layout="row" layout-align="center center">
+    <profile-card user="ctrl.user"></profile-card>
+    <!--<md-content class="md-padding" flex>-->
+        <!--<div layout="column">-->
+            <!--<span flex="5"></span>-->
+            <!--<div ng-repeat="post in ctrl.posts">-->
+                <!--<min-post post="post"></min-post>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</md-content>-->
+</div>
+<div layout="row" layout-fill layout-align="center center" ng-if="ctrl.user === undefined">
+    <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+</div>
+<div layout="column" layout-fill layout-align="center center" ng-if="ctrl.user === null">
+    <img src="https://firebasestorage.googleapis.com/v0/b/flour-creativity.appspot.com/o/1359477091749.jpg?alt=media&token=a723635a-4811-4717-8b99-06a5716c9de1"/>
+    <h1>I don't know who it</h1>
+</div>

@@ -1,0 +1,19 @@
+<div layout="column">
+    <div ng-if="ctrl.post">
+        <full-post ng-if="!ctrl.postEdit" post="ctrl.post"></full-post>
+        <edit-post ng-if="ctrl.user && ctrl.postEdit" post="ctrl.post" block-style="false"></edit-post>
+    </div>
+    <div layout="row" ng-if="false && ctrl.user && ctrl.post && (ctrl.post.writer.id == ctrl.user.id)">
+        <md-switch ng-model="ctrl.postEdit" aria-label="Edit post" ng-change="ctrl.modeChange()">
+            Edit post
+        </md-switch>
+    </div>
+    <div layout="row" layout-fill layout-align="center center" ng-if="ctrl.post === undefined || ctrl.comments === undefined">
+        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+    </div>
+    <app-comments ng-if="!ctrl.postEdit && ctrl.post" post-id="ctrl.post.id" comments="ctrl.comments" user="ctrl.user"></app-comments>
+    <div layout="column" layout-fill layout-align="center center" ng-if="ctrl.post === null">
+        <img src="https://firebasestorage.googleapis.com/v0/b/flour-creativity.appspot.com/o/1359477091749.jpg?alt=media&token=a723635a-4811-4717-8b99-06a5716c9de1"/>
+        <h1>This post is not here or he was never here</h1>
+    </div>
+</div>
