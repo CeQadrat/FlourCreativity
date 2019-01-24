@@ -1,4 +1,4 @@
-####**Flour Creativity**
+#### **Flour Creativity**
 Flour creativity is SPA which will allow you to share your flour of creativity :)
 Flour creativity was using PWA concept.
 
@@ -9,7 +9,7 @@ FC provide next functionality:
 -   Sharing post with other users
 -   Registration via email or login via google, twiiter, facebook, github
 
-####[Life demo](https://flour-creativity.firebaseapp.com/)
+#### [Life demo](https://flour-creativity.firebaseapp.com/)
 
 **Version**
 
